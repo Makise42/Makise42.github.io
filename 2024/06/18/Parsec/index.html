@@ -26,18 +26,20 @@
   
 <link rel="stylesheet" href="/css/loader.css">
 
-  <meta name="description" content="Parsec介绍Parsec 是一款远程桌面软件，它可以将用户的本地电脑连接到远程主机上，使用户可以远程访问、控制远程主机  特点：  界面漂亮简洁、干净直观 超低延迟 省内5-20，跨省50ms以下 高画质高帧率 轻松2K 60FPS，画质可高至8K，帧率可高至240FPS 不限制显卡 N卡、A卡、intel核显都能用 配置简单、无需折腾、开箱即用 安装、登录后就能用，点击要连接的电脑就能连接">
+  <meta name="description" content="Parsec介绍Parsec 是一款远程桌面软件，它可以将用户的本地电脑连接到远程主机上，使用户可以远程访问、控制远程主机  特点：  界面漂亮简洁、干净直观 超低延迟 省内5-20ms，跨省50ms以下 高画质高帧率 轻松2K 60FPS，画质可高至8K，帧率可高至240FPS 不限制显卡 N卡、A卡、intel核显都能用 配置简单、无需折腾、开箱即用 安装、登录后就能用，点击要连接的电脑就能连">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Parsec介绍及快速配置">
 <meta property="og:url" content="http://example.com/2024/06/18/Parsec/index.html">
 <meta property="og:site_name" content="MakiseBlog">
-<meta property="og:description" content="Parsec介绍Parsec 是一款远程桌面软件，它可以将用户的本地电脑连接到远程主机上，使用户可以远程访问、控制远程主机  特点：  界面漂亮简洁、干净直观 超低延迟 省内5-20，跨省50ms以下 高画质高帧率 轻松2K 60FPS，画质可高至8K，帧率可高至240FPS 不限制显卡 N卡、A卡、intel核显都能用 配置简单、无需折腾、开箱即用 安装、登录后就能用，点击要连接的电脑就能连接">
+<meta property="og:description" content="Parsec介绍Parsec 是一款远程桌面软件，它可以将用户的本地电脑连接到远程主机上，使用户可以远程访问、控制远程主机  特点：  界面漂亮简洁、干净直观 超低延迟 省内5-20ms，跨省50ms以下 高画质高帧率 轻松2K 60FPS，画质可高至8K，帧率可高至240FPS 不限制显卡 N卡、A卡、intel核显都能用 配置简单、无需折腾、开箱即用 安装、登录后就能用，点击要连接的电脑就能连">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/Parsec_04-04-03.png">
 <meta property="article:published_time" content="2024-06-18T07:57:14.135Z">
-<meta property="article:modified_time" content="2024-06-18T11:57:04.398Z">
+<meta property="article:modified_time" content="2024-06-18T20:57:13.929Z">
 <meta property="article:author" content="Makise">
 <meta property="article:tag" content="串流">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/Parsec_04-04-03.png">
   
     <link rel="alternate" href="/atom.xml" title="MakiseBlog" type="application/atom+xml">
   
@@ -208,7 +210,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parsec%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Parsec介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Host%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">Host端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">Client端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">常见问题与建议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">5.1.</span> <span class="toc-text">常用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-6023"><span class="toc-number">5.2.</span> <span class="toc-text">Error 6023</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-800"><span class="toc-number">5.3.</span> <span class="toc-text">Error 800</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%B3%95%E5%8F%96%E5%BE%97%E5%85%AC%E7%BD%91IP%E4%B8%94%E6%97%A0%E6%B3%95%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">5.4.</span> <span class="toc-text">无法取得公网IP且无法内网穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E4%BB%B6"><span class="toc-number">5.5.</span> <span class="toc-text">可能会用到的配件</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parsec%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Parsec介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Host%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">Host端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">Client端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">常见问题与建议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">5.1.</span> <span class="toc-text">常用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-800"><span class="toc-number">5.2.</span> <span class="toc-text">Error 800</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-6023"><span class="toc-number">5.3.</span> <span class="toc-text">Error 6023</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%B3%95%E5%8F%96%E5%BE%97%E5%85%AC%E7%BD%91IP%E4%B8%94%E6%97%A0%E6%B3%95%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">5.4.</span> <span class="toc-text">无法取得公网IP且无法内网穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E4%BB%B6"><span class="toc-number">5.5.</span> <span class="toc-text">可能会用到的配件</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -302,7 +304,7 @@
 <li><p>特点：</p>
 <ol>
 <li>界面漂亮简洁、干净直观</li>
-<li>超低延迟<br> 省内5-20，跨省50ms以下</li>
+<li>超低延迟<br> 省内5-20ms，跨省50ms以下</li>
 <li>高画质高帧率<br> 轻松2K 60FPS，画质可高至8K，帧率可高至240FPS</li>
 <li>不限制显卡<br> N卡、A卡、intel核显都能用</li>
 <li>配置简单、无需折腾、开箱即用<br> 安装、登录后就能用，点击要连接的电脑就能连接</li>
@@ -322,7 +324,7 @@
 <ul>
 <li><p>IPv4：打运营商电话申请</p>
 </li>
-<li><p>IPv6：路由器处打开(光猫一般默认打开)</p>
+<li><p>IPv6：路由器处打开(光猫一般默认打开)，打开后点此<a target="_blank" rel="noopener" href="https://www.test-ipv6.com/"><code>测试是否开启IPv6</code></a><br>老光猫别折腾，直接联系运营商换新光猫，新光猫才能更好的支持IPv6且性能更强</p>
 </li>
 <li><p>内网穿透：使用<code>ZeroTier</code> + <code>moon</code>做中转<br><a target="_blank" rel="noopener" href="https://support.parsec.app/hc/en-us/articles/115002766652-Using-a-VPN-ZeroTier-to-Connect-on-Parsec">Using a ZeroTier to Connect on Parsec</a></p>
 </li>
@@ -350,6 +352,22 @@
 <h2 id="常见问题与建议"><a href="#常见问题与建议" class="headerlink" title="常见问题与建议"></a>常见问题与建议</h2><h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><p><code>Ctrl + i</code>：进入专注模式，使用快捷键不会和主机冲突</p>
 <p><code>Ctrl + Shift + W</code>：全屏&#x2F;窗口模式切换</p>
 <p><code>Ctrl + Alt + ·</code>(即~键)：一键退出</p>
+<h3 id="Error-800"><a href="#Error-800" class="headerlink" title="Error 800"></a>Error 800</h3><p>可能是Parsec被运营商屏蔽</p>
+<p>为Parsec配置代理(串流不会走代理，所以代理只要能解决<code>Error 800</code>问题就行了)</p>
+<ol>
+<li>点击⚙️<code>setting</code></li>
+<li>滑到<code>setting</code>页面最下方</li>
+<li>找到<code>For advanced usage, you can edit the configuration file directly</code></li>
+<li>点击<code>edit the configuration file directly</code></li>
+</ol>
+<p><img src="/../img/Parsec_04-04-03.png" alt="打开Parsec配置文件"></p>
+<ol start="5">
+<li><p>在最下面空白行添加你的代理并保存</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app_proxy_address = 127.0.0.1    # 代理IP，自行更改</span><br><span class="line">app_proxy_scheme = http</span><br><span class="line">app_proxy = true</span><br><span class="line">app_proxy_port = 端口  #代理端口，自行更改</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>右键点击<code>Parsec右下角任务栏图标</code>，左键点击<code>Restart</code>进行重启</p>
+</li>
+</ol>
 <h3 id="Error-6023"><a href="#Error-6023" class="headerlink" title="Error 6023"></a>Error 6023</h3><p><a target="_blank" rel="noopener" href="https://support.parsec.app/hc/en-us/articles/115002601011-Error-Codes-6023-and-6024-Unable-To-Negotiate-A-Successful-Connection">官方文档</a></p>
 <ol>
 <li><p>通过蒲公英来搭建虚拟局域网<br><a target="_blank" rel="noopener" href="https://pgy.oray.com/download#visitor">下载地址</a><br><a target="_blank" rel="noopener" href="https://service.oray.com/question/4970.html#data-0">使用教程</a></p>
@@ -357,38 +375,23 @@
 <li><p>通过Tailscale组网<br><a target="_blank" rel="noopener" href="https://tailscale.com/download">下载地址</a><br><a target="_blank" rel="noopener" href="https://www.escapelife.site/posts/bb022c74.html">使用教程</a></p>
 </li>
 </ol>
-<h3 id="Error-800"><a href="#Error-800" class="headerlink" title="Error 800"></a>Error 800</h3><p>可能是Parsec被运营商屏蔽</p>
-<p>为Parsec配置代理(串流不会走代理，所以代理只要能解决<code>Error 800</code>问题就行了)</p>
-<ol>
-<li><p>点击⚙️<code>setting</code></p>
-</li>
-<li><p>滑到<code>setting</code>页面最下方</p>
-</li>
-<li><p>找到<code>For advanced usage, you can edit the configuration file directly</code></p>
-</li>
-<li><p>点击<code>edit the configuration file directly</code></p>
-</li>
-<li><p>添加你的代理并保存</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app_proxy_address = 127.0.0.1    # 代理IP，自行更改</span><br><span class="line">app_proxy_scheme = http</span><br><span class="line">app_proxy = true</span><br><span class="line">app_proxy_port = 端口  #代理端口，自行更改</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>右键点击<code>Parsec右下角任务栏图标</code>，左键点击<code>Restart</code>进行重启</p>
-</li>
-</ol>
 <h3 id="无法取得公网IP且无法内网穿透"><a href="#无法取得公网IP且无法内网穿透" class="headerlink" title="无法取得公网IP且无法内网穿透"></a>无法取得公网IP且无法内网穿透</h3><p>请尝试</p>
 <ul>
-<li>避免使用二级路由(主机只使用一级路由)<br>以下是属于二级路由的例子<ol>
+<li><p>避免使用二级路由(主机只使用一级路由)<br>以下是属于二级路由的例子</p>
+<ol>
 <li>光猫拨号连接路由器</li>
 <li>主路由下再接路由</li>
 </ol>
 </li>
-<li>使用全锥形NAT<ol>
+<li><p>使用全锥形NAT</p>
+<ol>
 <li>如果你的路由器提供了类似设置，你需要把他打开，名称可能是：</li>
 </ol>
 <ul>
 <li>全锥形NAT</li>
 <li>FullCone-NAT</li>
 </ul>
-<ol start="2">
+<ol>
 <li>如果不支持，你需要尝试DMZ</li>
 <li>如果无DMZ，你需要尝试设置uPnP(端口转发)：<br> 端口转发配置：外部区域&#x3D;WAN  内部区域&#x3D;LAN  内部主机&#x3D;你的主机  协议&#x3D;TCP+UDP</li>
 </ol>
@@ -520,7 +523,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parsec%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Parsec介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Host%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">Host端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">Client端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">常见问题与建议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">5.1.</span> <span class="toc-text">常用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-6023"><span class="toc-number">5.2.</span> <span class="toc-text">Error 6023</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-800"><span class="toc-number">5.3.</span> <span class="toc-text">Error 800</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%B3%95%E5%8F%96%E5%BE%97%E5%85%AC%E7%BD%91IP%E4%B8%94%E6%97%A0%E6%B3%95%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">5.4.</span> <span class="toc-text">无法取得公网IP且无法内网穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E4%BB%B6"><span class="toc-number">5.5.</span> <span class="toc-text">可能会用到的配件</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parsec%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Parsec介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Host%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">Host端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">Client端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">常见问题与建议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">5.1.</span> <span class="toc-text">常用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-800"><span class="toc-number">5.2.</span> <span class="toc-text">Error 800</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-6023"><span class="toc-number">5.3.</span> <span class="toc-text">Error 6023</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%B3%95%E5%8F%96%E5%BE%97%E5%85%AC%E7%BD%91IP%E4%B8%94%E6%97%A0%E6%B3%95%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">5.4.</span> <span class="toc-text">无法取得公网IP且无法内网穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E4%BB%B6"><span class="toc-number">5.5.</span> <span class="toc-text">可能会用到的配件</span></a></li></ol></li></ol>
       
   </div>
 </div>
