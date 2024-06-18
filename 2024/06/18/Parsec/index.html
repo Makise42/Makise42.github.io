@@ -1,0 +1,715 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  >
+  <head>
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  
+  <script>window.icon_font = '4552607_09mhdxci6yrk';window.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ"};</script>
+  
+  
+  <title>
+    Parsec介绍及快速配置 |
+    
+    MakiseBlog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CUbuntu%20Mono:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CUbuntu%20Mono:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_09mhdxci6yrk.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+<link rel="stylesheet" href="/css/loader.css">
+
+  <meta name="description" content="Parsec介绍Parsec 是一款远程桌面软件，它可以将用户的本地电脑连接到远程主机上，使用户可以远程访问、控制远程主机  特点：  界面漂亮简洁、干净直观 超低延迟 省内5-20，跨省50ms以下 高画质高帧率 轻松2K 60FPS，画质可高至8K，帧率可高至240FPS 不限制显卡 N卡、A卡、intel核显都能用 配置简单、无需折腾、开箱即用 安装、登录后就能用，点击要连接的电脑就能连接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Parsec介绍及快速配置">
+<meta property="og:url" content="http://example.com/2024/06/18/Parsec/index.html">
+<meta property="og:site_name" content="MakiseBlog">
+<meta property="og:description" content="Parsec介绍Parsec 是一款远程桌面软件，它可以将用户的本地电脑连接到远程主机上，使用户可以远程访问、控制远程主机  特点：  界面漂亮简洁、干净直观 超低延迟 省内5-20，跨省50ms以下 高画质高帧率 轻松2K 60FPS，画质可高至8K，帧率可高至240FPS 不限制显卡 N卡、A卡、intel核显都能用 配置简单、无需折腾、开箱即用 安装、登录后就能用，点击要连接的电脑就能连接">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-18T07:57:14.135Z">
+<meta property="article:modified_time" content="2024-06-18T11:57:04.398Z">
+<meta property="article:author" content="Makise">
+<meta property="article:tag" content="串流">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="MakiseBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css">
+
+  
+  
+  
+  
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"></script>
+
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/wowjs@1.1.3/css/libs/animate.css">
+
+    
+<script src="https://npm.webcache.cn/wowjs@1.1.3/dist/wow.min.js"></script>
+
+    <script>
+      new WOW({
+        offset: 0,
+        mobile: true,
+        live: false
+      }).init();
+    </script>
+  
+  
+    <script src="/sw.js"></script>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#da532c">
+  <meta name="apple-mobile-web-app-title" content="MakiseBlog">
+  <meta name="application-name" content="MakiseBlog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="bookmark" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+  <body>
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi">
+        <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+          <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+          <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+          <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+        </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      <span class="main-nav-link-wrap">
+        <span class="main-nav-icon"></span>
+        <a class="main-nav-link" href="/">Home</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <span class="main-nav-icon"></span>
+        <a class="main-nav-link" href="/archives">Archives</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <span class="main-nav-icon"></span>
+        <a class="main-nav-link" href="/about">About</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <span class="main-nav-icon"></span>
+        <a class="main-nav-link" href="/friend">Friend</a>
+      </span>
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+    
+    
+    
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search"></a>
+    
+  </nav>
+</div>
+<header id="header">
+  
+    
+      <img fetchpriority="high" src="/images/banner.webp" alt="Parsec介绍及快速配置">
+    
+  
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div id="logo-wrap">
+        
+          
+          
+            <a href="/" id="logo">
+              <h1>Parsec介绍及快速配置</h1>
+            </a>
+          
+        
+      </div>
+      
+        
+        <h2 id="subtitle-wrap">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content" class="outer">
+          
+            <aside id="sidebar">
+  <div class="sidebar-wrap wow fadeInRight wrap-sticky">
+    
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parsec%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Parsec介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Host%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">Host端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">Client端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">常见问题与建议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">5.1.</span> <span class="toc-text">常用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-6023"><span class="toc-number">5.2.</span> <span class="toc-text">Error 6023</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-800"><span class="toc-number">5.3.</span> <span class="toc-text">Error 800</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%B3%95%E5%8F%96%E5%BE%97%E5%85%AC%E7%BD%91IP%E4%B8%94%E6%97%A0%E6%B3%95%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">5.4.</span> <span class="toc-text">无法取得公网IP且无法内网穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E4%BB%B6"><span class="toc-number">5.5.</span> <span class="toc-text">可能会用到的配件</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Makise" class="lazyload">
+  <div class="sidebar-author-name">Makise</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div>
+    <div class="sidebar-state-number">2</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Categories</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tags</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Home</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Archives</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">About</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Friend</div>
+    </div>
+  
+</div>
+</div>
+    
+    
+      <div class="sidebar-btn-wrapper" style="position:static">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  </div>
+
+  
+</aside>
+
+          
+          <section id="main"><article id="post-Parsec" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    <div class="article-meta">
+      <div class="article-date wow slideInLeft">
+  <a href="/2024/06/18/Parsec/" class="article-date-link">
+    <time datetime="2024-06-18T07:57:14.135Z" itemprop="datePublished">2024-06-18</time>
+  </a>
+</div>
+
+      
+  <div class="article-category wow slideInLeft">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">软件推荐</a>
+  </div>
+
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Parsec介绍"><a href="#Parsec介绍" class="headerlink" title="Parsec介绍"></a>Parsec介绍</h2><p>Parsec 是一款远程桌面软件，它可以将用户的本地电脑连接到远程主机上，使用户可以远程访问、控制远程主机</p>
+<ul>
+<li><p>特点：</p>
+<ol>
+<li>界面漂亮简洁、干净直观</li>
+<li>超低延迟<br> 省内5-20，跨省50ms以下</li>
+<li>高画质高帧率<br> 轻松2K 60FPS，画质可高至8K，帧率可高至240FPS</li>
+<li>不限制显卡<br> N卡、A卡、intel核显都能用</li>
+<li>配置简单、无需折腾、开箱即用<br> 安装、登录后就能用，点击要连接的电脑就能连接</li>
+<li>免费</li>
+</ol>
+</li>
+<li><p>作用：</p>
+<ol>
+<li>配置属于自己的云电脑</li>
+<li>与朋友远程联机</li>
+</ol>
+</li>
+</ul>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ol>
+<li>公网IP(以下四选一)</li>
+</ol>
+<ul>
+<li><p>IPv4：打运营商电话申请</p>
+</li>
+<li><p>IPv6：路由器处打开(光猫一般默认打开)</p>
+</li>
+<li><p>内网穿透：使用<code>ZeroTier</code> + <code>moon</code>做中转<br><a target="_blank" rel="noopener" href="https://support.parsec.app/hc/en-us/articles/115002766652-Using-a-VPN-ZeroTier-to-Connect-on-Parsec">Using a ZeroTier to Connect on Parsec</a></p>
+</li>
+<li><p>以上三个都做不到：见<code>常见问题与建议</code>下的<a href="#Error-6023"><code>Error 6023</code></a></p>
+</li>
+</ul>
+<ol>
+<li><p>下载安装注册Parsec</p>
+<p> <a target="_blank" rel="noopener" href="https://parsec.app/downloads">官网下载链接</a></p>
+<p> <a target="_blank" rel="noopener" href="https://dash.parsec.app/signup/">官网注册链接</a></p>
+</li>
+</ol>
+<h2 id="Host端配置"><a href="#Host端配置" class="headerlink" title="Host端配置"></a>Host端配置</h2><p>Host端即主机端，被Client端使用的端</p>
+<p>重要设置介绍及建议</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 是否运行作为服务端</span><br><span class="line">- Hosting Enabled</span><br><span class="line">    Enabled     # 启用</span><br><span class="line"></span><br><span class="line"># 分辨率</span><br><span class="line">- Resolution</span><br><span class="line">    Use Client Resolution    # 使用Clien端设置</span><br><span class="line"></span><br><span class="line"># 带宽限制(上传带宽)，越高带宽，可以承载的画面就越多</span><br><span class="line">- Bandwidth Limit</span><br><span class="line">    10 Mbps     # 自行测速，根据需要设置</span><br><span class="line"></span><br><span class="line"># 画面质量</span><br><span class="line">- Quality</span><br><span class="line">    Balanced    # 追求低延迟选Low，网络好选High</span><br><span class="line"></span><br><span class="line"># 虚拟麦克风，使Client端的麦克风可作用在Host端</span><br><span class="line">- Virtual Microphone</span><br><span class="line">    On</span><br></pre></td></tr></table></figure>
+
+<p>多人联机建议设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 专属输入模式，开启后同一时间只有一个人可以控制鼠标</span><br><span class="line">- Exclusive Input Mode</span><br><span class="line">    On</span><br><span class="line"></span><br><span class="line"># 语音软件回声消除</span><br><span class="line">- Echo cancelling</span><br><span class="line">    New</span><br><span class="line"># 选择需要消除回声的语音软件，不在列表的软件需要自己配置，见`常见问题与建议`</span><br><span class="line">- Echo Selection</span><br><span class="line">    Discord     # 可Discord中配置代理使用</span><br></pre></td></tr></table></figure>
+
+<h2 id="Client端配置"><a href="#Client端配置" class="headerlink" title="Client端配置"></a>Client端配置</h2><p>Client端即客户端，使用Host端的端</p>
+<p>Client端没有什么可调整的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 解码器选择</span><br><span class="line">- Decoder</span><br><span class="line">    NVIDIA  #选择你显卡</span><br><span class="line"></span><br><span class="line">- H.265</span><br><span class="line">    On</span><br></pre></td></tr></table></figure>
+
+<p>连上Host端以后，还可点击左上角Parsec图标，自由调整</p>
+<h2 id="常见问题与建议"><a href="#常见问题与建议" class="headerlink" title="常见问题与建议"></a>常见问题与建议</h2><h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><p><code>Ctrl + i</code>：进入专注模式，使用快捷键不会和主机冲突</p>
+<p><code>Ctrl + Shift + W</code>：全屏&#x2F;窗口模式切换</p>
+<p><code>Ctrl + Alt + ·</code>(即~键)：一键退出</p>
+<h3 id="Error-6023"><a href="#Error-6023" class="headerlink" title="Error 6023"></a>Error 6023</h3><p><a target="_blank" rel="noopener" href="https://support.parsec.app/hc/en-us/articles/115002601011-Error-Codes-6023-and-6024-Unable-To-Negotiate-A-Successful-Connection">官方文档</a></p>
+<ol>
+<li><p>通过蒲公英来搭建虚拟局域网<br><a target="_blank" rel="noopener" href="https://pgy.oray.com/download#visitor">下载地址</a><br><a target="_blank" rel="noopener" href="https://service.oray.com/question/4970.html#data-0">使用教程</a></p>
+</li>
+<li><p>通过Tailscale组网<br><a target="_blank" rel="noopener" href="https://tailscale.com/download">下载地址</a><br><a target="_blank" rel="noopener" href="https://www.escapelife.site/posts/bb022c74.html">使用教程</a></p>
+</li>
+</ol>
+<h3 id="Error-800"><a href="#Error-800" class="headerlink" title="Error 800"></a>Error 800</h3><p>可能是Parsec被运营商屏蔽</p>
+<p>为Parsec配置代理(串流不会走代理，所以代理只要能解决<code>Error 800</code>问题就行了)</p>
+<ol>
+<li><p>点击⚙️<code>setting</code></p>
+</li>
+<li><p>滑到<code>setting</code>页面最下方</p>
+</li>
+<li><p>找到<code>For advanced usage, you can edit the configuration file directly</code></p>
+</li>
+<li><p>点击<code>edit the configuration file directly</code></p>
+</li>
+<li><p>添加你的代理并保存</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app_proxy_address = 127.0.0.1    # 代理IP，自行更改</span><br><span class="line">app_proxy_scheme = http</span><br><span class="line">app_proxy = true</span><br><span class="line">app_proxy_port = 端口  #代理端口，自行更改</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>右键点击<code>Parsec右下角任务栏图标</code>，左键点击<code>Restart</code>进行重启</p>
+</li>
+</ol>
+<h3 id="无法取得公网IP且无法内网穿透"><a href="#无法取得公网IP且无法内网穿透" class="headerlink" title="无法取得公网IP且无法内网穿透"></a>无法取得公网IP且无法内网穿透</h3><p>请尝试</p>
+<ul>
+<li>避免使用二级路由(主机只使用一级路由)<br>以下是属于二级路由的例子<ol>
+<li>光猫拨号连接路由器</li>
+<li>主路由下再接路由</li>
+</ol>
+</li>
+<li>使用全锥形NAT<ol>
+<li>如果你的路由器提供了类似设置，你需要把他打开，名称可能是：</li>
+</ol>
+<ul>
+<li>全锥形NAT</li>
+<li>FullCone-NAT</li>
+</ul>
+<ol start="2">
+<li>如果不支持，你需要尝试DMZ</li>
+<li>如果无DMZ，你需要尝试设置uPnP(端口转发)：<br> 端口转发配置：外部区域&#x3D;WAN  内部区域&#x3D;LAN  内部主机&#x3D;你的主机  协议&#x3D;TCP+UDP</li>
+</ol>
+</li>
+</ul>
+<h3 id="可能会用到的配件"><a href="#可能会用到的配件" class="headerlink" title="可能会用到的配件"></a>可能会用到的配件</h3><ol>
+<li>HDMI诱骗器<br>防止不连接显示器主板自检失败，并且便于虚拟多种分辨率，以适应不同的客户机显示条件<br>替代：连接一个不通电的显示器</li>
+<li>无线鼠标&#x2F;键盘接收器<br>在主机没有连接任何鼠标键盘的情况下，parsec会无法进键鼠操控，而一个无线接收器就可以代替真实的键鼠输入，而且体积很小<br>替代：连接一套真的键鼠</li>
+<li>远程开机卡<br>用于远程开机，将Parsec设置为自启动即可有台可远程开关机的云电脑<br>替代：智能插座配合来电自启<blockquote>
+<ol>
+<li>开机按<code>DEL</code>键，进入主板的BIOS，</li>
+<li>选择<code>Power Management Setup（电源管理设置）</code></li>
+<li>选项<code>Pwron After PW-Fail</code>默认设置值是<code>Disabled</code></li>
+<li>把该项设置值改为 <code>Enabled</code>，这样断电恢复后就能自动开机了</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>进入BIOS的设置主界面</li>
+<li>选择<code>POWER MANAGEMENT SETUP</code></li>
+<li>再选择<code>PWR Lost Resume State</code></li>
+<li>选择<code>Turn On</code>项，代表停电后再来电时，电脑会自动启动</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%B2%E6%B5%81/" rel="tag">串流</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+  <nav id="article-nav" class="wow fadeInUp">
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="https://s2.loli.net/2024/06/07/dBHNangOlAKkGZ4.png" data-sizes="auto" alt="Hello World" class="lazyload">
+        
+      
+      <a href="/2024/06/10/hello-world/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          Hello World
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+  
+</article>
+
+
+
+
+
+
+</section>
+          
+        </div>
+        <footer id="footer" class="wow fadeInUp">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      <div>
+        <span class="icon-copyright"></span>
+        2020-2024
+        <span class="footer-info-sep"></span>
+        Makise
+      </div>
+      
+        <div>
+          Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+          Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+        </div>
+      
+      
+        <div>
+          <span class="icon-brush"></span>
+          1.2k
+          &nbsp;|&nbsp;
+          <span class="icon-coffee"></span>
+          00:05
+        </div>
+      
+      
+        <div>
+          <span class="icon-eye"></span>
+          <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+          &nbsp;|&nbsp;
+          <span class="icon-user"></span>
+          <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+        </div>
+      
+    </div>
+  </div>
+</footer>
+
+        <div class="sidebar-top">
+          <img src="/images/taichi.png" height="50" width="50" alt="backtop" />
+          <div class="arrow-up"></div>
+        </div>
+        <div id="mask"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parsec%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Parsec介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><span class="toc-number">2.</span> <span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Host%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">Host端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">Client端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E5%BB%BA%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">常见问题与建议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">5.1.</span> <span class="toc-text">常用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-6023"><span class="toc-number">5.2.</span> <span class="toc-text">Error 6023</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-800"><span class="toc-number">5.3.</span> <span class="toc-text">Error 800</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%B3%95%E5%8F%96%E5%BE%97%E5%85%AC%E7%BD%91IP%E4%B8%94%E6%97%A0%E6%B3%95%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">5.4.</span> <span class="toc-text">无法取得公网IP且无法内网穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84%E9%85%8D%E4%BB%B6"><span class="toc-number">5.5.</span> <span class="toc-text">可能会用到的配件</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Makise" class="lazyload">
+  <div class="sidebar-author-name">Makise</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div>
+    <div class="sidebar-state-number">2</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Categories</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tags</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Home</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Archives</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">About</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Friend</div>
+    </div>
+  
+</div>
+</div>
+    
+  </div>
+  
+    <div class="sidebar-btn-wrapper">
+      <div class="sidebar-toc-btn current"></div>
+      <div class="sidebar-common-btn"></div>
+    </div>
+  
+</nav>
+
+    </div>
+    <div class="site-search">
+      <div class="reimu-popup popup">
+        <div class="reimu-search">
+          <span class="reimu-search-input-icon"></span>
+          <div class="reimu-search-input" id="reimu-search-input"></div>
+        </div>
+        <div class="reimu-results">
+          <div id="reimu-stats"></div>
+          <div id="reimu-hits"></div>
+          <div id="reimu-pagination" class="reimu-pagination"></div>
+        </div>
+        <span class="popup-btn-close"></span>
+      </div>
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+<script type="module" data-pjax>
+  import PhotoSwipeLightbox from "https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.js";
+  
+  const pswp = () => {
+    if (_$$('.article-entry a.article-gallery-item').length > 0) {
+      new PhotoSwipeLightbox({
+        gallery: '.article-entry',
+        children: 'a.article-gallery-item',
+        pswpModule: () => import("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.js")
+      }).init();
+    }
+    if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+      new PhotoSwipeLightbox({
+        gallery: '.article-gallery',
+        children: 'a.article-gallery-item',
+        pswpModule: () => import("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.js")
+      }).init();
+    }
+    window.lightboxStatus = 'done';
+    window.removeEventListener('lightbox:ready', pswp);
+  }
+  if(window.lightboxStatus === 'ready') {
+    pswp()
+  } else {
+    window.addEventListener('lightbox:ready', pswp);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/generator_search.js"></script>
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.0.4/dist/index.umd.js"></script>
+
+  <script>
+    firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["#ff5252","#ff7c7c","#ffafaf","#ffd0d0"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["#ff0000"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'))
+  </script>
+
+
+
+
+
+  <script>
+    function initLive2d() {
+      live2d.init("https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/", {themeTipsPath: ""});
+    }
+  </script>
+  
+<script src="https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/js/live2d-autoload.js" onload="initLive2d &amp;&amp; initLive2d()" async></script>
+
+
+
+<div id="lazy-script">
+  <div>
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '0.2.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+  <!-- hexo injector body_end start -->
+<script src="/js/insert_highlight.js" data-pjax></script>
+<!-- hexo injector body_end end --><script src="/node_modules/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"node_modules/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/node_modules/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+  </html>
+
