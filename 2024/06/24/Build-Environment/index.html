@@ -1,0 +1,798 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  >
+  <head>
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  
+  <script>window.icon_font = '4552607_09mhdxci6yrk';window.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ"};</script>
+  
+  
+  <title>
+    Linux基础设置（新买的VPS需要做什么） |
+    
+    MakiseBlog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CUbuntu%20Mono:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CUbuntu%20Mono:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_09mhdxci6yrk.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+<link rel="stylesheet" href="/css/loader.css">
+
+  <meta name="description" content="阅读须知   所有内容都基于Debian和vps拥有良好的网络环境 非root用户请使用sudo指令 本文面向小白，所以不少废话 本文不会及时更新，一切请以官方文档为准 请善用目录与搜索（CTRL + F）   基础设置1.更新软件包&#123;.line-numbers&#125;1apt update &amp;&amp; apt upgrade &amp;&amp; apt full-upg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础设置（新买的VPS需要做什么）">
+<meta property="og:url" content="http://example.com/2024/06/24/Build-Environment/index.html">
+<meta property="og:site_name" content="MakiseBlog">
+<meta property="og:description" content="阅读须知   所有内容都基于Debian和vps拥有良好的网络环境 非root用户请使用sudo指令 本文面向小白，所以不少废话 本文不会及时更新，一切请以官方文档为准 请善用目录与搜索（CTRL + F）   基础设置1.更新软件包&#123;.line-numbers&#125;1apt update &amp;&amp; apt upgrade &amp;&amp; apt full-upg">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/Build-Environment_09-45-03.png">
+<meta property="article:published_time" content="2024-06-24T01:42:51.760Z">
+<meta property="article:modified_time" content="2024-06-24T03:35:34.812Z">
+<meta property="article:author" content="Makise">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/Build-Environment_09-45-03.png">
+  
+    <link rel="alternate" href="/atom.xml" title="MakiseBlog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css">
+
+  
+  
+  
+  
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"></script>
+
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/wowjs@1.1.3/css/libs/animate.css">
+
+    
+<script src="https://npm.webcache.cn/wowjs@1.1.3/dist/wow.min.js"></script>
+
+    <script>
+      new WOW({
+        offset: 0,
+        mobile: true,
+        live: false
+      }).init();
+    </script>
+  
+  
+    <script src="/sw.js"></script>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#da532c">
+  <meta name="apple-mobile-web-app-title" content="MakiseBlog">
+  <meta name="application-name" content="MakiseBlog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="bookmark" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+  <body>
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi">
+        <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+          <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+          <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+          <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+        </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      <span class="main-nav-link-wrap">
+        <span class="main-nav-icon"></span>
+        <a class="main-nav-link" href="/">Home</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <span class="main-nav-icon"></span>
+        <a class="main-nav-link" href="/archives">Archives</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <span class="main-nav-icon"></span>
+        <a class="main-nav-link" href="/about">About</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <span class="main-nav-icon"></span>
+        <a class="main-nav-link" href="/friend">Friend</a>
+      </span>
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+    
+    
+    
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search"></a>
+    
+  </nav>
+</div>
+<header id="header">
+  
+    
+      <img fetchpriority="high" src="/images/banner.webp" alt="Linux基础设置（新买的VPS需要做什么）">
+    
+  
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div id="logo-wrap">
+        
+          
+          
+            <a href="/" id="logo">
+              <h1>Linux基础设置（新买的VPS需要做什么）</h1>
+            </a>
+          
+        
+      </div>
+      
+        
+        <h2 id="subtitle-wrap">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content" class="outer">
+          
+            <aside id="sidebar">
+  <div class="sidebar-wrap wow fadeInRight wrap-sticky">
+    
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">基础设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-number">1.1.</span> <span class="toc-text">1.更新软件包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%9F%BA%E7%A1%80%E5%B7%A5%E5%85%B7"><span class="toc-number">1.2.</span> <span class="toc-text">2.安装基础工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9B%B4%E6%8D%A2%E9%BB%98%E8%AE%A4%E7%BC%96%E8%BE%91%E5%99%A8%E4%B8%BANeovim"><span class="toc-number">1.3.</span> <span class="toc-text">3.更换默认编辑器为Neovim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-number">1.4.</span> <span class="toc-text">4.设置时区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">安全配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%94%A8%E6%88%B7"><span class="toc-number">2.1.</span> <span class="toc-text">1.添加新用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BF%AE%E6%94%B9SSH%E7%99%BB%E5%BD%95%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.2.</span> <span class="toc-text">2. 修改SSH登录端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AESSH%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="toc-number">2.3.</span> <span class="toc-text">3.配置SSH免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.生成密钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%B8%8A%E4%BC%A0%E5%85%AC%E9%92%A5"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.上传公钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.登录验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9B%B4%E5%BF%AB%E6%8D%B7%E7%9A%84%E7%99%BB%E5%BD%95%EF%BC%88SSH%E7%99%BB%E5%BD%95%E5%90%8D%E9%85%8D%E7%BD%AE%EF%BC%89"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.更快捷的登录（SSH登录名配置）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%99%90%E5%88%B6root%E7%94%A8%E6%88%B7ssh%E7%99%BB%E5%BD%95%E6%88%96%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95"><span class="toc-number">2.4.</span> <span class="toc-text">4.限制root用户ssh登录或密码登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%90%AF%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">2.5.</span> <span class="toc-text">5.启用防火墙</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0SWAP"><span class="toc-number">3.</span> <span class="toc-text">添加SWAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AELNMP%E7%8E%AF%E5%A2%83"><span class="toc-number">4.</span> <span class="toc-text">配置LNMP环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Nginx"><span class="toc-number">4.1.</span> <span class="toc-text">安装Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEMySQL"><span class="toc-number">4.2.</span> <span class="toc-text">安装并配置MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85MySQL"><span class="toc-number">4.2.1.</span> <span class="toc-text">安装MySQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEMySQL"><span class="toc-number">4.2.2.</span> <span class="toc-text">配置MySQL</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E6%9D%BF%E5%AE%89%E8%A3%85-%E5%8F%AF%E9%80%89"><span class="toc-number">5.</span> <span class="toc-text">面板安装(可选)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Podman"><span class="toc-number">5.1.</span> <span class="toc-text">安装Podman</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Cockpit"><span class="toc-number">5.2.</span> <span class="toc-text">安装Cockpit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8Cockpit%E7%AE%A1%E7%90%86Podman"><span class="toc-number">5.3.</span> <span class="toc-text">用Cockpit管理Podman</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Makise" class="lazyload">
+  <div class="sidebar-author-name">Makise</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Categories</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tags</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Home</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Archives</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">About</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Friend</div>
+    </div>
+  
+</div>
+</div>
+    
+    
+      <div class="sidebar-btn-wrapper" style="position:static">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
+  </div>
+
+  
+</aside>
+
+          
+          <section id="main"><article id="post-Build-Environment" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner">
+    <div class="article-meta">
+      <div class="article-date wow slideInLeft">
+  <a href="/2024/06/24/Build-Environment/" class="article-date-link">
+    <time datetime="2024-06-24T01:42:51.760Z" itemprop="datePublished">2024-06-24</time>
+  </a>
+</div>
+
+      
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>阅读须知</p>
+<blockquote>
+<ol>
+<li>所有内容都基于Debian和vps拥有良好的网络环境</li>
+<li>非root用户请使用sudo指令</li>
+<li>本文面向小白，所以不少废话</li>
+<li>本文不会及时更新，一切请以官方文档为准</li>
+<li>请善用目录与搜索（<code>CTRL + F</code>）</li>
+</ol>
+</blockquote>
+<h2 id="基础设置"><a href="#基础设置" class="headerlink" title="基础设置"></a>基础设置</h2><h3 id="1-更新软件包"><a href="#1-更新软件包" class="headerlink" title="1.更新软件包"></a>1.更新软件包</h3><figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt upgrade &amp;&amp; apt full-upgrade</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-安装基础工具"><a href="#2-安装基础工具" class="headerlink" title="2.安装基础工具"></a>2.安装基础工具</h3><figure class="highlight bash"><figcaption><span>&#123;.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install neovim curl unzip sudo wget</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-更换默认编辑器为Neovim"><a href="#3-更换默认编辑器为Neovim" class="headerlink" title="3.更换默认编辑器为Neovim"></a>3.更换默认编辑器为Neovim</h3><ol>
+<li><p>卸载nano</p>
+ <figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get remove nano</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更换默认编辑器</p>
+<p> 运行</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --config editor</span><br></pre></td></tr></table></figure>
+
+<p> 出现如下界面<br> <img src="/../img/Build-Environment_09-45-03.png"></p>
+<p> 选择 0 (neovim automode),回车确认</p>
+</li>
+</ol>
+<h3 id="4-设置时区"><a href="#4-设置时区" class="headerlink" title="4.设置时区"></a>4.设置时区</h3><figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timedatectl show        <span class="comment">#查看系统时区</span></span><br><span class="line">timedatectl set-timezone Asia/Shanghai      <span class="comment">#修改系统时区为东八区</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安全配置"><a href="#安全配置" class="headerlink" title="安全配置"></a>安全配置</h2><h3 id="1-添加新用户"><a href="#1-添加新用户" class="headerlink" title="1.添加新用户"></a>1.添加新用户</h3><p>添加新用户<br>以下用户名都以asuka为例子，请自行更改</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser asuka</span><br></pre></td></tr></table></figure>
+
+<p>添加新用户到 sudo 用户组</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -aG sudo asuka</span><br></pre></td></tr></table></figure>
+
+<p>检查新用户是否在sudo用户组中</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">groups</span> asuka</span><br></pre></td></tr></table></figure>
+
+<p>相关补充</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span>            <span class="comment"># 退出当前用户登录</span></span><br><span class="line">passwd asuka        <span class="comment"># 重设asuka密码</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-修改SSH登录端口"><a href="#2-修改SSH登录端口" class="headerlink" title="2. 修改SSH登录端口"></a>2. 修改SSH登录端口</h3><p>vim基本指令介绍</p>
+<ul>
+<li>若指令的第一个字符为<code>:</code>或<code>/</code>或<code>?</code>，需在normal模式下输入，通常是先按<code>ESC</code>回到normal模式，然后直接输入指令，输入完按<code>Enter</code>才会执行</li>
+<li>vim指令区分大小写</li>
+</ul>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> nu     <span class="comment"># 显示行数</span></span><br><span class="line">i           <span class="comment"># 光标处进入编辑模式</span></span><br><span class="line">/           <span class="comment"># 搜索</span></span><br><span class="line">行数G       <span class="comment"># 跳转到第n行</span></span><br><span class="line">ESC         <span class="comment"># 退出当前模式</span></span><br><span class="line">:wq         <span class="comment"># 退出并保存</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>更改端口前，把 22 端口也添加上，等 ssh 能通过其他端口连接后，再注释掉22端口。</strong></p>
+<p>打开SSH配置文件</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>找到</p>
+<blockquote>
+<p>#Port 22</p>
+</blockquote>
+<p>  （一般在14行，所以可以<code>14G</code>跳转到这）</p>
+</li>
+<li><p>去掉注释（按<code>i</code>进入编辑模式）</p>
+</li>
+<li><p>添加新端口号,端口号范围为 1024 - 65535，以端口号为<code>6543</code>为例</p>
+<blockquote>
+<p>Port 22<br>Port 6543</p>
+</blockquote>
+</li>
+<li><p>按<code>ESC</code>退出当前模式</p>
+</li>
+<li><p>输入<code>:wq</code>退出并保存</p>
+</li>
+</ul>
+<p>重启SSHD服务,让配置生效</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd.service</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>测试是否有效</p>
+  <figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 退出当前用户登陆</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 以用户名为root，服务器IP地址为1.1.1.1为例</span></span><br><span class="line">ssh -p 6543 root@1.1.1.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新打开ssh配置文件，将22端口注释</p>
+</li>
+</ul>
+<p>如遇到 ssh 连接总自己断开，还可以添加添加配置：</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ClientAliveInterval 30     <span class="comment"># 每30S服务器向客户端发送一个&quot;alive&quot;消息</span></span><br><span class="line">ClientAliveCountMax 6      <span class="comment"># 服务器允许客户端连续忽略6个&quot;alive&quot;消息</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置SSH免密登录"><a href="#3-配置SSH免密登录" class="headerlink" title="3.配置SSH免密登录"></a>3.配置SSH免密登录</h3><p><strong>Windows终端工具建议使用<code>Git Bash</code>或<code>Cmder</code>，避免出现默认终端识别不出命令的情况</strong></p>
+<p>本机指当前使用机器（你在操作的机器）<br>服务器指需要远程服务器（你需要远程连接的机器）</p>
+<h4 id="1-生成密钥"><a href="#1-生成密钥" class="headerlink" title="1.生成密钥"></a>1.生成密钥</h4><p>在本机终端下下输入</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen      <span class="comment"># 用户在 ~/.ssh 目录生成公钥和私钥</span></span><br></pre></td></tr></table></figure>
+
+<p>根据需要设置，可一路回车全默认</p>
+<h4 id="2-上传公钥"><a href="#2-上传公钥" class="headerlink" title="2.上传公钥"></a>2.上传公钥</h4><p>将本机公钥文件上传到远程服务器</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入.ssh文件夹</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传该文件夹下的公钥文件</span></span><br><span class="line">ssh-copy-id -i ./密钥文件名.pub -p 端口 用户名@服务器IP</span><br><span class="line"><span class="comment"># 根据提示输入密码</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 公钥文件路径可用绝对路径（路径分隔符是\\而不是\），公钥文件后缀名为.pub</span></span><br></pre></td></tr></table></figure>
+
+<p>例子</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绝对路径例子</span></span><br><span class="line">ssh-copy-id -i C:\\Users\\本机用户名\\.ssh\\id_rsa.pub -p 6543 root@1.1.1.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 相对路径例子</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ssh-copy-id -i ./id_rsa.pub -p 6543 root@1.1.1.1</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-登录验证"><a href="#3-登录验证" class="headerlink" title="3.登录验证"></a>3.登录验证</h4><figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 6543 root@1.1.1.1</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-更快捷的登录（SSH登录名配置）"><a href="#4-更快捷的登录（SSH登录名配置）" class="headerlink" title="4.更快捷的登录（SSH登录名配置）"></a>4.更快捷的登录（SSH登录名配置）</h4><p>在密钥文件所在文件夹创建配置文件<code>config</code><br>文件名为config，无后缀</p>
+<ul>
+<li>密钥文件默认位于 <code>~/.ssh</code> 文件夹，例如<code>C:\Users\本机用户名\.ssh</code></li>
+</ul>
+<p>内容如下</p>
+<figure class="highlight plaintext"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Host 一个别名 # 随便取，用于ssh登录的名字</span><br><span class="line">    User 用户名 # 需要登录的远程服务器用户名</span><br><span class="line">    HostName 远程服务器IP</span><br><span class="line">    Port 服务器的ssh端口</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa # 私钥文件，无后缀</span><br><span class="line"></span><br><span class="line"># 例子</span><br><span class="line">Host vps-root # 随便取，用于ssh登录的名字</span><br><span class="line">    User root # 需要登录的远程服务器用户名</span><br><span class="line">    HostName 1.1.1.1</span><br><span class="line">    Port 6543</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>保存后，登录一下试试</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh 一个别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">ssh vps-root</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-限制root用户ssh登录或密码登录"><a href="#4-限制root用户ssh登录或密码登录" class="headerlink" title="4.限制root用户ssh登录或密码登录"></a>4.限制root用户ssh登录或密码登录</h3><p>进入配置文件：</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>找到并修改PermitRootLogin：</p>
+<figure class="highlight plaintext"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 默认为yes，若修改为no，则限制root用户通过ssh登录</span><br><span class="line">PermitRootLogin no</span><br><span class="line"></span><br><span class="line"># 如果只是想限制root用户用密码登录，但能用密钥登录</span><br><span class="line">PermitRootLogin without-password</span><br></pre></td></tr></table></figure>
+
+<p>重启ssh服务，使修改生效：</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-启用防火墙"><a href="#5-启用防火墙" class="headerlink" title="5.启用防火墙"></a>5.启用防火墙</h3><p>安装ufw</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install ufw</span><br></pre></td></tr></table></figure>
+
+<p>打开ssh应用的默认端口</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw allow ssh</span><br></pre></td></tr></table></figure>
+
+<p>如果 ssh 监听其他端口，就打开那个端口</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 端口</span><br></pre></td></tr></table></figure>
+
+<p>启用防火墙（启用之前一定要保证，SSH 的端口已经开了，不然登出之后就登不进来了）</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="添加SWAP"><a href="#添加SWAP" class="headerlink" title="添加SWAP"></a>添加SWAP</h2><figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创造1G的swap</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=/mnt/swap bs=1M count=1024</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置交换分区文件</span></span><br><span class="line">mkswap /mnt/swap</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动swap</span></span><br><span class="line">swapon /mnt/swap</span><br></pre></td></tr></table></figure>
+
+<p>设置开机自启用swap</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>添加<code>/mnt/swap swap swap defaults 0 0</code></p>
+<h2 id="配置LNMP环境"><a href="#配置LNMP环境" class="headerlink" title="配置LNMP环境"></a>配置LNMP环境</h2><h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新Debian系统内的软件包</span></span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装Nginx</span></span><br><span class="line">sudo apt -y install nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看Nginx版本 </span></span><br><span class="line">nginx -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># nginx默认使用80端口，需要让防火墙开放80端口</span></span><br><span class="line">sudo ufw allow 80</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装并配置MySQL"><a href="#安装并配置MySQL" class="headerlink" title="安装并配置MySQL"></a>安装并配置MySQL</h3><h4 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h4><p>安装 Mysql 的源。可以从这个网页获取最新版本的链接：<br><code>https://dev.mysql.com/downloads/repo/apt/</code></p>
+<blockquote>
+<p>点击Download<br>复制<code>No thanks,just start my download</code>链接地址。这就是要用wget下载的包</p>
+</blockquote>
+<p>获取软件包</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Mysql 时，需要判断你的发行版，因此需要 lsb-release</span></span><br><span class="line">sudo apt install lsb-release</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载最新版本包</span></span><br><span class="line">wget https://dev.mysql.com/get/mysql-apt-config_0.8.30-1_all.deb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装该包</span></span><br><span class="line">sudo dpkg -i mysql-apt-config_0.8.30-1_all.deb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除该包</span></span><br><span class="line"><span class="built_in">rm</span> mysql-apt-config_0.8.30-1_all.deb</span><br></pre></td></tr></table></figure>
+
+<p>安装</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更新软件包</span></span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装MySQL</span></span><br><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+
+<p>安装过程会提示你设置Mysql的root用户密码，输入即可</p>
+<p>然后就可以使用了</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql --version     <span class="comment"># 检查版本</span></span><br><span class="line">mysql --<span class="built_in">help</span>        <span class="comment"># 查看帮助</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="配置MySQL"><a href="#配置MySQL" class="headerlink" title="配置MySQL"></a>配置MySQL</h4><p>假设你在安装 Mysql 时，按照提示设置了 root 用户的密码</p>
+<p>1. </p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用root用户连接</span></span><br><span class="line">mysql -u root -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为了避免特殊bug，alter一下用户</span></span><br><span class="line"><span class="comment"># 将mynewpassword替换为你自己密码</span></span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED WITH mysql_native_password by <span class="string">&#x27;mynewpassword&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>本示例中密码以<code>Mysql@1234</code>为例，示例命令：</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED WITH mysql_native_password by <span class="string">&#x27;Mysql@1234&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="面板安装-可选"><a href="#面板安装-可选" class="headerlink" title="面板安装(可选)"></a>面板安装(可选)</h2><h3 id="安装Podman"><a href="#安装Podman" class="headerlink" title="安装Podman"></a>安装Podman</h3><figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install podman</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Cockpit"><a href="#安装Cockpit" class="headerlink" title="安装Cockpit"></a>安装Cockpit</h3><p><a target="_blank" rel="noopener" href="https://cockpit-project.org/running.html#debian">官方文档</a></p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">. /etc/os-release</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb http://deb.debian.org/debian <span class="variable">$&#123;VERSION_CODENAME&#125;</span>-backports main&quot;</span> &gt; \</span><br><span class="line">    /etc/apt/sources.list.d/backports.list</span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+<details>
+    <summary>命令解释</summary>
+
+<ol>
+<li><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这条命令会显示当前系统的发行版信息，包括版本号、代号等。输出内容通常包含类似于以下的键值对：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PRETTY_NAME=<span class="string">&quot;Debian GNU/Linux 11 (bullseye)&quot;</span></span><br><span class="line"> VERSION_CODENAME=bullseye</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb http://deb.debian.org/debian <span class="variable">$&#123;VERSION_CODENAME&#125;</span>-backports main&quot;</span> &gt; /etc/apt/sources.list.d/backports.list</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这条命令利用<code>echo</code>命令将一个字符串写入到文件<code>/etc/apt/sources.list.d/backports.list</code>中。该字符串定义了Debian backports软件源的地址。</li>
+<li><code>$&#123;VERSION_CODENAME&#125;</code>是一个变量，它的值来自于<code>/etc/os-release</code>文件中的<code>VERSION_CODENAME</code>，例如，<code>bullseye</code>。</li>
+</ul>
+</li>
+<li><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这条命令更新系统中可用的软件包列表，使得新的backports源中的软件包可以被系统识别和使用。</li>
+</ul>
+</li>
+</ol>
+</details>
+
+<p>cockpit默认监听9090端口，让防火墙打开9090端口</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 9090</span><br></pre></td></tr></table></figure>
+
+<p>启动cockpit并设置为自动启动</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start cockpit.socket</span><br><span class="line">sudo <span class="built_in">enable</span> cockpit.socket</span><br></pre></td></tr></table></figure>
+
+<p>查看状态</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status cockpit.socket</span><br></pre></td></tr></table></figure>
+
+<p>启动后就可以在本机浏览器输入<code>https://服务器ip地址:9090</code>控制服务器了</p>
+<blockquote>
+<p>用户名    服务器用户名<br>密码  服务器密码</p>
+</blockquote>
+<h3 id="用Cockpit管理Podman"><a href="#用Cockpit管理Podman" class="headerlink" title="用Cockpit管理Podman"></a>用Cockpit管理Podman</h3><p>安装cockpit-podman</p>
+<figure class="highlight bash"><figcaption><span>&#123;.line-numbers&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install cockpit-podman</span><br></pre></td></tr></table></figure>
+
+<p>打开浏览器进入Cockpit<br>左侧就有<code>Podman容器</code>了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+    
+  <nav id="article-nav" class="wow fadeInUp">
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="https://s2.loli.net/2024/06/07/dBHNangOlAKkGZ4.png" data-sizes="auto" alt="Parsec介绍及快速配置" class="lazyload">
+        
+      
+      <a href="/2024/06/18/Parsec/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          Parsec介绍及快速配置
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+  
+</article>
+
+
+
+
+
+
+</section>
+          
+        </div>
+        <footer id="footer" class="wow fadeInUp">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      <div>
+        <span class="icon-copyright"></span>
+        2020-2024
+        <span class="footer-info-sep"></span>
+        Makise
+      </div>
+      
+        <div>
+          Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+          Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+        </div>
+      
+      
+        <div>
+          <span class="icon-brush"></span>
+          3.9k
+          &nbsp;|&nbsp;
+          <span class="icon-coffee"></span>
+          00:16
+        </div>
+      
+      
+        <div>
+          <span class="icon-eye"></span>
+          <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+          &nbsp;|&nbsp;
+          <span class="icon-user"></span>
+          <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+        </div>
+      
+    </div>
+  </div>
+</footer>
+
+        <div class="sidebar-top">
+          <img src="/images/taichi.png" height="50" width="50" alt="backtop" />
+          <div class="arrow-up"></div>
+        </div>
+        <div id="mask"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">基础设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-number">1.1.</span> <span class="toc-text">1.更新软件包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%9F%BA%E7%A1%80%E5%B7%A5%E5%85%B7"><span class="toc-number">1.2.</span> <span class="toc-text">2.安装基础工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9B%B4%E6%8D%A2%E9%BB%98%E8%AE%A4%E7%BC%96%E8%BE%91%E5%99%A8%E4%B8%BANeovim"><span class="toc-number">1.3.</span> <span class="toc-text">3.更换默认编辑器为Neovim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-number">1.4.</span> <span class="toc-text">4.设置时区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">安全配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%94%A8%E6%88%B7"><span class="toc-number">2.1.</span> <span class="toc-text">1.添加新用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BF%AE%E6%94%B9SSH%E7%99%BB%E5%BD%95%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.2.</span> <span class="toc-text">2. 修改SSH登录端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AESSH%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="toc-number">2.3.</span> <span class="toc-text">3.配置SSH免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.生成密钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%B8%8A%E4%BC%A0%E5%85%AC%E9%92%A5"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.上传公钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.登录验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9B%B4%E5%BF%AB%E6%8D%B7%E7%9A%84%E7%99%BB%E5%BD%95%EF%BC%88SSH%E7%99%BB%E5%BD%95%E5%90%8D%E9%85%8D%E7%BD%AE%EF%BC%89"><span class="toc-number">2.3.4.</span> <span class="toc-text">4.更快捷的登录（SSH登录名配置）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%99%90%E5%88%B6root%E7%94%A8%E6%88%B7ssh%E7%99%BB%E5%BD%95%E6%88%96%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95"><span class="toc-number">2.4.</span> <span class="toc-text">4.限制root用户ssh登录或密码登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%90%AF%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">2.5.</span> <span class="toc-text">5.启用防火墙</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0SWAP"><span class="toc-number">3.</span> <span class="toc-text">添加SWAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AELNMP%E7%8E%AF%E5%A2%83"><span class="toc-number">4.</span> <span class="toc-text">配置LNMP环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Nginx"><span class="toc-number">4.1.</span> <span class="toc-text">安装Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEMySQL"><span class="toc-number">4.2.</span> <span class="toc-text">安装并配置MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85MySQL"><span class="toc-number">4.2.1.</span> <span class="toc-text">安装MySQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEMySQL"><span class="toc-number">4.2.2.</span> <span class="toc-text">配置MySQL</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E6%9D%BF%E5%AE%89%E8%A3%85-%E5%8F%AF%E9%80%89"><span class="toc-number">5.</span> <span class="toc-text">面板安装(可选)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Podman"><span class="toc-number">5.1.</span> <span class="toc-text">安装Podman</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Cockpit"><span class="toc-number">5.2.</span> <span class="toc-text">安装Cockpit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8Cockpit%E7%AE%A1%E7%90%86Podman"><span class="toc-number">5.3.</span> <span class="toc-text">用Cockpit管理Podman</span></a></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Makise" class="lazyload">
+  <div class="sidebar-author-name">Makise</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Categories</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tags</div>
+    <div class="sidebar-state-number">1</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Home</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Archives</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">About</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+      <span class="sidebar-menu-icon"></span>
+      <div class="sidebar-menu-link">Friend</div>
+    </div>
+  
+</div>
+</div>
+    
+  </div>
+  
+    <div class="sidebar-btn-wrapper">
+      <div class="sidebar-toc-btn current"></div>
+      <div class="sidebar-common-btn"></div>
+    </div>
+  
+</nav>
+
+    </div>
+    <div class="site-search">
+      <div class="reimu-popup popup">
+        <div class="reimu-search">
+          <span class="reimu-search-input-icon"></span>
+          <div class="reimu-search-input" id="reimu-search-input"></div>
+        </div>
+        <div class="reimu-results">
+          <div id="reimu-stats"></div>
+          <div id="reimu-hits"></div>
+          <div id="reimu-pagination" class="reimu-pagination"></div>
+        </div>
+        <span class="popup-btn-close"></span>
+      </div>
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+<script type="module" data-pjax>
+  import PhotoSwipeLightbox from "https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.js";
+  
+  const pswp = () => {
+    if (_$$('.article-entry a.article-gallery-item').length > 0) {
+      new PhotoSwipeLightbox({
+        gallery: '.article-entry',
+        children: 'a.article-gallery-item',
+        pswpModule: () => import("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.js")
+      }).init();
+    }
+    if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+      new PhotoSwipeLightbox({
+        gallery: '.article-gallery',
+        children: 'a.article-gallery-item',
+        pswpModule: () => import("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.js")
+      }).init();
+    }
+    window.lightboxStatus = 'done';
+    window.removeEventListener('lightbox:ready', pswp);
+  }
+  if(window.lightboxStatus === 'ready') {
+    pswp()
+  } else {
+    window.addEventListener('lightbox:ready', pswp);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/generator_search.js"></script>
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.0.4/dist/index.umd.js"></script>
+
+  <script>
+    firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["#ff5252","#ff7c7c","#ffafaf","#ffd0d0"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["#ff0000"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'))
+  </script>
+
+
+
+
+
+  <script>
+    function initLive2d() {
+      live2d.init("https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/", {themeTipsPath: ""});
+    }
+  </script>
+  
+<script src="https://fastly.jsdelivr.net/gh/MliKiowa/plugin-live2d/js/live2d-autoload.js" onload="initLive2d &amp;&amp; initLive2d()" async></script>
+
+
+
+<div id="lazy-script">
+  <div>
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '0.2.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+  <!-- hexo injector body_end start -->
+<script src="/js/insert_highlight.js" data-pjax></script>
+<!-- hexo injector body_end end --><script src="/node_modules/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"node_modules/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/node_modules/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+  </html>
+
