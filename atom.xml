@@ -3,11 +3,11 @@
   <title>MakiseBlog</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://makiise.top/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://makiise.top/"/>
   <updated>2024-06-24T03:35:34.812Z</updated>
-  <id>http://example.com/</id>
+  <id>https://makiise.top/</id>
   
   <author>
     <name>Makise</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Linux基础设置（新买的VPS需要做什么）</title>
-    <link href="http://example.com/2024/06/24/Build-Environment/"/>
-    <id>http://example.com/2024/06/24/Build-Environment/</id>
+    <link href="https://makiise.top/2024/06/24/Build-Environment/"/>
+    <id>https://makiise.top/2024/06/24/Build-Environment/</id>
     <published>2024-06-24T01:42:51.760Z</published>
     <updated>2024-06-24T03:35:34.812Z</updated>
     
@@ -44,8 +44,8 @@
   
   <entry>
     <title>Parsec介绍及快速配置</title>
-    <link href="http://example.com/2024/06/18/Parsec/"/>
-    <id>http://example.com/2024/06/18/Parsec/</id>
+    <link href="https://makiise.top/2024/06/18/Parsec/"/>
+    <id>https://makiise.top/2024/06/18/Parsec/</id>
     <published>2024-06-18T07:57:14.135Z</published>
     <updated>2024-06-24T03:35:43.328Z</updated>
     
@@ -59,17 +59,17 @@
     
     
     
-    <category term="软件推荐" scheme="http://example.com/categories/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
+    <category term="软件推荐" scheme="https://makiise.top/categories/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
     
     
-    <category term="串流" scheme="http://example.com/tags/%E4%B8%B2%E6%B5%81/"/>
+    <category term="串流" scheme="https://makiise.top/tags/%E4%B8%B2%E6%B5%81/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2024/06/10/hello-world/"/>
-    <id>http://example.com/2024/06/10/hello-world/</id>
+    <link href="https://makiise.top/2024/06/10/hello-world/"/>
+    <id>https://makiise.top/2024/06/10/hello-world/</id>
     <published>2024-06-10T12:04:15.615Z</published>
     <updated>2024-06-18T19:17:30.123Z</updated>
     

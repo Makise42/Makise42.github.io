@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/friend/index.html</loc>
+    <loc>https://makiise.top/friend/index.html</loc>
     
     <lastmod>2024-06-26</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2024/06/18/Parsec/</loc>
+    <loc>https://makiise.top/2024/06/18/Parsec/</loc>
     
     <lastmod>2024-06-24</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2024/06/24/Build-Environment/</loc>
+    <loc>https://makiise.top/2024/06/24/Build-Environment/</loc>
     
     <lastmod>2024-06-24</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>https://makiise.top/categories/index.html</loc>
     
     <lastmod>2024-06-18</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2024/06/10/hello-world/</loc>
+    <loc>https://makiise.top/2024/06/10/hello-world/</loc>
     
     <lastmod>2024-06-18</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>https://makiise.top/tags/index.html</loc>
     
     <lastmod>2024-06-18</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>https://makiise.top/about/index.html</loc>
     
     <lastmod>2024-06-10</lastmod>
     
@@ -66,16 +66,16 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
-    <lastmod>2024-06-26</lastmod>
+    <loc>https://makiise.top/</loc>
+    <lastmod>2024-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://example.com/tags/%E4%B8%B2%E6%B5%81/</loc>
-    <lastmod>2024-06-26</lastmod>
+    <loc>https://makiise.top/tags/%E4%B8%B2%E6%B5%81/</loc>
+    <lastmod>2024-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -83,8 +83,8 @@
 
   
   <url>
-    <loc>http://example.com/categories/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</loc>
-    <lastmod>2024-06-26</lastmod>
+    <loc>https://makiise.top/categories/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</loc>
+    <lastmod>2024-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
